@@ -1,0 +1,568 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body{
+           background: #312f2f; 
+        }
+      #frmdata {
+      }
+      #SOAP {
+      }
+      #table {
+        align-self: center;
+      }
+
+      .marTop {
+        margin-top: 20px;
+      }
+      .head {
+        text-align: center;
+      }
+      .content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .contentHead {
+        padding: 10px;
+      }
+
+      .contentTable tr:nth-child(even) {
+        background-color: #deeaee;
+      }
+
+      .contentTable tr:nth-child(odd) {
+        background-color: #b1cbbb;
+      }
+
+      h1{
+          color: #b1cbbb;
+
+      }
+      .subHead {
+        text-align: center;
+        color:#deeaee;
+      }
+
+       #finalOutput{
+        width: 0px;
+    height: 0px;
+    opacity: 0;
+      } 
+
+      #clipButton{
+        margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 160px;
+    height: 40px;
+    background: #deeaee;
+    font-family: inherit;
+    font-size: initial;
+      }
+
+
+     
+    </style>
+   
+  </head>
+  <body id="SOAP">
+    <h1 class="head">ProSoap Template</h1>
+    <Table id="tbl">
+      <tr>
+        <td width="10%"></td>
+        <td width="80%">
+          <form id="frmdata">
+            <table class="contentTable" style="width:100%">
+                    <h3 class="subHead">Problem Description</h3>
+              <tr class="marTop">
+                <td style="width:35%" class="contentHead">
+                  Problem Description :
+                </td>
+                <td class="content">
+                  <textarea
+                    style="width:90%;height:100px"
+                    id="description"
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+              <h3 class="subHead">Objective</h3>
+              <table class="contentTable" style="width:100%">
+              <tr class="marTop">
+                <td class="contentHead">Environment Details :</td>
+                <td class="content">
+                  OS Details<br /><br/>
+                  <div id="checkbox">
+                    <input type="checkbox" value="Win7" id="Win7" /> Win 7
+                    <input type="checkbox" value="Win2008R2" id="Win2008R2" /> Win 2008 R2
+                    <input type="checkbox" value="Win81" id="Win81"/> Win 8.1 
+                    <input type="checkbox" value="Win2012" id="Win2012"/> Win 2012 <br/>
+                    <input type="checkbox" value="Win2012R2" id="Win2012R2"/> Win 2012 R2
+                    <input type="checkbox" value="Win10RS1" id="Win10RS1"/> Win 10 RS1
+                    <input type="checkbox" value="Win10RS2" id="Win10RS2"/> Win 10 RS2
+                    <input type="checkbox" value="Win10RS3" id="Win10RS3"/> Win 10 RS3<br/>
+                    <input type="checkbox" value="Win10RS4" id="Win10RS4"/> Win 10 RS4
+                    <input type="checkbox" value="Win10RS5" id="Win10RS5"/> Win 10 RS5
+                    <input type="checkbox" value="Win10RS6" id="Win10RS6"/> Win 10 RS6<br/>
+                    <input type="checkbox" value="Win101607 LTSB" id="Win101607"/> Win 10 1607
+                    LTSB <input type="checkbox" value="Win102019 LTSC" id="Win102019"/> Win 10
+                    2019 LTSC
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td style="width:35%" class="contentHead">
+                  Browser Affected :
+                </td>
+                <td class="content">
+                  <input type="radio" name="browser" class="browser" value="IE" /> IE 11
+                  <input type="radio" name="browser" class="browser"  value="Edge" /> Edge
+                  <input type="radio" name="browser" class="browser"  value="Both" /> Both <br />
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td class="contentHead">
+                  Update Version :
+                </td>
+                <td class="content">
+                  <input style="width: 90%" type="text" name="Update" id="updateVer"/>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td class="contentHead">
+                  Affected Machine Details :
+                </td>
+                <td class="content">
+                  <textarea
+                    style="width: 90%"
+                    style="width:300px;height:100px"
+                    id="affectedMachine"
+                  ></textarea>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td class="contentHead">
+                  Antivirus/ Data Loss Prevention if any
+                </td>
+                <td class="content">
+                  <input style="width: 90%" type="text" name="Antivirus" id="antivirus" />
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td class="contentHead">
+                  Other Information
+                </td>
+                <td class="content">
+                  <textarea style="width:90%;height:100px" id="otherInfo"></textarea>
+                </td>
+              </tr>
+            </table>
+
+            <h3 class="subHead">Business Impact</h3>
+
+            <table class="contentTable" style="width:100%">
+              <tr class="marTop">
+                <td width="35%" class="contentHead">
+                  What is the business Impact of this issue?<br />What is the
+                  functionality loss?
+                </td>
+                <td class="content">
+                  <textarea style="width:90%;height:100px" id="businessImp"></textarea>
+                </td>
+              </tr>
+            </table>
+
+            <h3 class="subHead">Assessment</h3>
+
+            <table class="contentTable" style="width:100%">
+              <tr class="marTop">
+                <td width="35%" class="contentHead">
+                  When did the problem started happening?
+                </td>
+                <td class="content">
+                  <input style="width:90%" type="text" id="whenStarted"/>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td width="35%" class="contentHead">
+                  Was there any changes made prior to the issue happened?
+                </td>
+                <td class="content">
+                  <input style="width:90%" type="text" id="anyChange" />
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td width="35%" class="contentHead">
+                  Did it ever work previously, without any issues?
+                </td>
+                <td class="content">
+                  <input style="width:90%" type="text" id="didItWork"/>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                <td width="35%" class="contentHead">
+                  How many machines are having this problem?<br />
+                  Give us an approx number of machines that are affected because
+                  of this issue.
+                </td>
+                <td class="content">
+                  <input style="width:90%" type="text" id="howMany"/>
+                </td>
+              </tr>
+
+              <tr class="marTop">
+                    <td width="35%" class="contentHead">
+                            Are all these machines built on same image?
+                    </td>
+                    <td class="content">
+                            <input type="radio" name="image" value="allmachines" />Yes
+                            <input type="radio" name="image" value="somemachines" />No
+                    </td>
+                  </tr>
+
+                  <tr class="marTop">
+                        <td width="35%" class="contentHead">
+                                Is there a machine that is working fine within the environment?
+                        </td>
+                        <td class="content">
+                                <input type="radio" name="image1" value="yes" />Yes
+                                <input type="radio" name="image1" value="no" />No
+                        </td>
+                      </tr>
+
+                      <tr class="marTop">
+                            <td width="35%" class="contentHead">
+                                    Does this happen on different versions of the Browser? If so, which
+            (be exact)?
+                            </td>
+                            <td class="content">
+                                    <input style="width:90%" type="text" id="whichVer"/>
+                            </td>
+                          </tr>
+
+                          <tr class="marTop">
+                                <td width="35%" class="contentHead">
+                                        How often does this problem happen? Can it be reproduced at will?
+                                </td>
+                                <td class="content">
+                                        <input style="width:90%" type="text" id="howOften"/>
+                                </td>
+                              </tr>
+
+                              <tr class="marTop">
+                                    <td width="35%" class="contentHead">
+                                            Is a web application involved? If so, please provide those details.
+                                    </td>
+                                    <td class="content">
+                                            <input style="width:90%" type="text" id='isAnyWebApp' />
+                                    </td>
+                                  </tr>
+
+                                  <tr class="marTop">
+                                        <td width="35%" class="contentHead">
+                                                Can the issue be connected to and reproduced externally?
+                                        </td>
+                                        <td class="content">
+                                                <input style="width:90%" type="text" id="externalRepro"/>
+                                        </td>
+                                      </tr>
+
+                                      <tr class="marTop">
+                                            <td width="35%" class="contentHead">
+                                                    If yes, please provide the site information, access information, and repro details - Get the steps recorded screenshot/video
+                                            </td>
+                                            <td class="content">
+                                                    <input style="width:90%" type="text" id="reproDetails" />
+                                            </td>
+                                          </tr>
+
+                                          <tr class="marTop">
+                                                <td width="35%" class="contentHead">
+                                                        What is the role of the customer, IT or Developer?
+                                                </td>
+                                                <td class="content">
+                                                        <input style="width:90%" type="text" id="cxRole"/>
+                                                </td>
+                                              </tr>
+
+                                              <tr class="marTop">
+                                                    <td width="35%" class="contentHead">
+                                                            Is Affected machine Virtual or Physical machine
+                                                    </td>
+                                                    <td class="content">
+                                                            <input style="width:90%" type="text" id="machineType"/>
+                                                    </td>
+                                                  </tr>
+
+                                                  <tr class="marTop">
+                                                        <td width="35%" class="contentHead">
+                                                               Troubleshooting Done
+                                                        </td>
+                                                        <td class="content">
+                                                                <textarea
+                                                style="width: 90%;height:400px"
+                                                id="troubleshooting"
+                                                 ></textarea>
+                                                        </td>
+                                                      </tr>
+
+                                                      <tr class="marTop">
+                                                            <td  class="contentHead">
+                                                                   Next Action Plan
+                                                            </td>
+                                                            <td></td>
+
+                                                            <tr class="marTop">
+                                                                    <td  class="contentHead">
+                                                                           Microsoft
+                                                                    </td>
+                                                                    <td class="content">
+                                                                            <textarea
+                                                                            style="width: 90%;height:200px"
+                                                                           id="msap"
+                                                                          ></textarea>
+                                                                    </td>
+                                                           
+                                                          </tr>
+                                                          <tr class="marTop">
+                                                                <td  class="contentHead">
+                                                                       Customer
+                                                                </td>
+                                                                <td class="content">
+                                                                        <textarea
+                                                                        style="width: 90%;height:200px"
+                                                                       id="cxap"
+                                                                      ></textarea>
+                                                                </td>
+                                                       
+                                                      </tr>
+                                                      <tr class="marTop">
+                                                            <td width="35%" class="contentHead">
+                                                                    Next Contact Date
+                                                            </td>
+                                                            <td class="content">
+                                                                    <input style="width:90%" type="text" id="nextcontact" />
+                                                            </td>
+                                                          </tr>
+                                                          <tr class="marTop">
+                                                                <td  class="contentHead">
+                                                                        Data Share: <br/><br/>
+                                                                        Attach to the case notes, description of the log when was it collected and what information does it contain.<br/><br/> 
+                                                                        Eg: <br/>
+                                                                        Procmonlog.pml -> Collected when setting the home page http://msn.com <br/>
+                                                                        Failure_netmon.cap-> Collected when we were accessing http://bing.com 
+                                                                </td>
+                                                                <td class="content">
+                                                                        <textarea
+                                                                        style="width: 90%;height:200px"
+                                                                       id="logDetails"
+                                                                      ></textarea>
+                                                                </td>
+                                                       
+                                                      </tr>
+                                                          
+
+                                                  
+            </table>
+
+           
+            <INPUT id="clipButton" name=clipboard onclick=copyContent() type=button value="Copy to clipboard">
+            
+                <textarea
+                id="finalOutput"
+               
+              ></textarea>  
+   
+          </form>
+        </td>
+        <td width="10%"></td>
+      </tr>
+    </Table>
+  </body>
+  <script>
+      function copyContent(){
+        var description = document.getElementById("description").value;
+    var updateVer = document.getElementById("updateVer").value;
+    var win7 = document.getElementById("Win7").value;
+    var win2008R2 = document.getElementById("Win2008R2").value;
+    var win81 = document.getElementById("Win81").value;
+    var win2012 = document.getElementById("Win2012").value;
+    var win2012R2 = document.getElementById("Win2012R2").value;
+    var win10RS1 = document.getElementById("Win10RS1").value;
+    var win10RS2 = document.getElementById("Win10RS2").value;
+    var win10RS3 = document.getElementById("Win10RS3").value;
+    var win10RS4 = document.getElementById("Win10RS4").value;
+    var win10RS5 = document.getElementById("Win10RS5").value;
+    var win10RS6 = document.getElementById("Win10RS6").value;
+    var win101607 = document.getElementById("Win101607").value;
+    var win102019 = document.getElementById("Win102019").value;
+
+    var affectedMachine = document.getElementById("affectedMachine").value;
+    var antivirus = document.getElementById("antivirus").value;
+    var otherInfo = document.getElementById("otherInfo").value;
+    var businessImp = document.getElementById("businessImp").value;
+    var whenStarted = document.getElementById("whenStarted").value;
+    var anyChange = document.getElementById("anyChange").value;
+    var didItWork = document.getElementById("didItWork").value;
+    var howMany = document.getElementById("howMany").value;
+    var whichVer = document.getElementById("whichVer").value;
+    var howOften = document.getElementById("howOften").value;
+    var isAnyWebApp = document.getElementById("isAnyWebApp").value;
+    var externalRepro = document.getElementById("externalRepro").value;
+    var reproDetails = document.getElementById("reproDetails").value;
+    var cxRole = document.getElementById("cxRole").value;
+    var troubleshooting  = document.getElementById("troubleshooting").value;
+    var machineType  = document.getElementById("machineType").value;
+    var msap  = document.getElementById("msap").value;
+    var cxap  = document.getElementById("cxap").value;
+    var nextcontact  = document.getElementById("nextcontact").value;
+    var logDetails  = document.getElementById("logDetails").value;
+
+
+
+
+
+    
+        var enrDetails = '';
+        if (document.getElementById("Win7").checked){
+        enrDetails = enrDetails + win7 + ', ';
+    }
+    if (document.getElementById("Win2008R2").checked){
+        enrDetails = enrDetails + win2008R2 + ', ';
+    }
+    if (document.getElementById("Win81").checked){
+        enrDetails = enrDetails + win81 + ', ';
+    }
+    if (document.getElementById("Win2012").checked){
+        enrDetails = enrDetails + win2012 + ', ';
+    }
+    if (document.getElementById("Win2012R2").checked){
+        enrDetails = enrDetails + win2012R2 + ', ';
+    }
+    if (document.getElementById("Win10RS1").checked){
+        enrDetails = enrDetails + win10RS1 + ', ';
+    }
+    if (document.getElementById("Win10RS2").checked){
+        enrDetails = enrDetails + win10RS2 + ', ';
+    }
+    if (document.getElementById("Win10RS3").checked){
+        enrDetails = enrDetails + win10RS3 + ', ';
+    }
+    if (document.getElementById("Win10RS4").checked){
+        enrDetails = enrDetails + win10RS4 + ', ';
+    }
+    if (document.getElementById("Win10RS5").checked){
+        enrDetails = enrDetails + win10RS5 + ', ';
+    }
+    if (document.getElementById("Win10RS6").checked){
+        enrDetails = enrDetails + win10RS6 + ', ';
+    }
+    if (document.getElementById("Win101607").checked){
+        enrDetails = enrDetails + win101607 + ', ';
+    }
+    if (document.getElementById("Win102019").checked){
+        enrDetails = enrDetails + win102019 + ', ';
+    }
+
+    var browser_val = '';
+    // if (document.getElementsByClassName('browser').checked) {
+    // browser_val = document.getElementsByClassName('browser').value;
+    // }
+
+    var radios = document.getElementsByName('browser');
+
+for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+        
+        browser_val= radios[i].value;
+       
+        break;
+    }
+}
+
+var machineBuiltVal;
+
+var machineBuilt = document.getElementsByName('image');
+
+for (var i = 0, length = machineBuilt.length; i < length; i++) {
+    if (machineBuilt[i].checked) {
+        
+        machineBuiltVal= machineBuilt[i].value;
+       
+        break;
+    }
+}
+
+var withinEnvVal;
+
+var withinEnv = document.getElementsByName('image1');
+
+for (var i = 0, length = withinEnv.length; i < length; i++) {
+    if (withinEnv[i].checked) {
+        
+        withinEnvVal= withinEnv[i].value;
+       
+        break;
+    }
+}
+
+
+    
+    mainText = "Problem Description: " +'\n'+"===================="+'\n\n'+ description +'\n\n'
+    +"Environment details:"+'\n'+"===================="+ '\n\n'+enrDetails.substring(0, enrDetails.length - 2)+ '\n\n' 
+    +"Affected Browser:"+'\n'+"===================="+ '\n\n'+browser_val+'\n\n'
+    +"Update Version: "+'\n'+"===================="+'\n\n'+updateVer+'\n\n'
+    +"Affected Machine Details: "+'\n'+"===================="+'\n\n'+affectedMachine+'\n\n'
+    +"Antivirus/ Data Loss Prevention if any: "+'\n'+"===================="+'\n\n'+antivirus+'\n\n'
+    +"Other Information: "+'\n'+"===================="+'\n\n'+otherInfo+'\n\n'
+    +"Business Impact: "+'\n'+"===================="+'\n\n'+businessImp+'\n\n'
+    +"When did the problem started happening? "+'\n'+"===================="+'\n\n'+whenStarted+'\n\n'
+    +"Was there any changes made prior to the issue happened? "+'\n'+"===================="+'\n\n'+anyChange+'\n\n'
+    +"Did it ever work previously, without any issues?: "+'\n'+"===================="+'\n\n'+didItWork+'\n\n'
+    +"How many machines are having this problem?: "+'\n'+"===================="+'\n\n'+howMany+'\n\n'
+    +"Are all these machines built on same image? "+'\n'+"===================="+'\n\n'+machineBuiltVal+'\n\n'
+    +"Is there a machine that is working fine within the environment? "+'\n'+"===================="+'\n\n'+withinEnvVal+'\n\n'
+    +"Does this happen on different versions of the Browser? If so, which? "+'\n'+"===================="+'\n\n'+whichVer+'\n\n'
+    +"How often does this problem happen? Can it be reproduced at will? "+'\n'+"===================="+'\n\n'+howOften+'\n\n'
+    +"Is a web application involved? If so, please provide those details. "+'\n'+"===================="+'\n\n'+isAnyWebApp+'\n\n'
+    +"Can the issue be connected to and reproduced externally? "+'\n'+"===================="+'\n\n'+externalRepro+'\n\n'
+    +"ReproDetails: "+'\n'+"===================="+'\n\n'+reproDetails+'\n\n'
+    +"What is the role of the customer?: "+'\n'+"===================="+'\n\n'+cxRole+'\n\n'
+    +"Is Affected machine Virtual or Physical machine: "+'\n'+"===================="+'\n\n'+machineType +'\n\n'
+    +"Troubleshooting Done: "+'\n'+"===================="+'\n\n'+troubleshooting+'\n\n'
+    +"Next Action Plan:: "+'\n'+"===================="+'\n\n'
+    +"Microsoft: "+'\n'+"-------------------"+'\n\n'+msap+'\n\n'
+    +"Customer: "+'\n'+"-------------------"+'\n\n'+cxap+'\n\n'
+    +"Next Contact Date: "+'\n'+"===================="+'\n\n'+nextcontact+'\n\n'
+    +"Logs Collected: "+'\n'+"===================="+'\n\n'+logDetails+'\n\n'
+    
+
+    ;
+
+    document.getElementById('finalOutput').value = mainText;
+
+
+    var finalContent = document.getElementById('finalOutput');
+    finalContent.select();
+  document.execCommand("copy");
+  alert("Copied the text: " + finalContent.value);
+      }
+       
+    </script>
+</html>

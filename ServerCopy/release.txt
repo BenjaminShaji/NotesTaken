@@ -1,0 +1,34 @@
+20/7/2023
+- Added case experience field, based on which the content of survey pitching is decided in the closure email. 
+- Added S500 field in the list of offerings.
+- Added links for Browser Basix and Visage. 
+--------------------------------------------------------------------------------
+
+07/05/2024 (Suggestions by Sanjeev)
+
+- Added CritSit Handoff Template 
+- Added General Case Handover Template
+- Updated Escalation Summary section to match the new template
+--------------------------------------------------------------------------------
+
+23/05/2024
+
+- CritSit Handoff Template showed "Case Originated from" instead of "Transfer Reason" in the copied content. Corrected it to display Transfer Reason. (Viraj)
+--------------------------------------------------------------------------------
+
+25/04/2025
+
+- New pages for logs collection and email templates introduced where users can copy by clicking on button 
+- Back to top option also added 
+
+Known issues:
+Images were being copied as blank
+RCA: Images behind authentication cannot be copied to the email client because email client/editor is not capable of performing authentication. 
+Solution: Created an image dump (https://imagedump-f6g0hufmdufvhdf9.canadacentral-01.azurewebsites.net) and hosted all the image files needed for logs collection on it, and did not enable authentication for it. We are able to copy and paste seamlessly now. 
+
+Note: There is a folder named "imagedump" which should be hosted on the above dump portal. It contains another folder called "images". All the images are placed in it. In future also, we need to use the same location.
+Ex. <img src="https://imagedump-f6g0hufmdufvhdf9.canadacentral-01.azurewebsites.net/images/sync.png">
+
+The only exception are the images used for favicon and logo. These images are deployed directly with the rest of the files present under ServerCopy folder. 
+
+--------------------------------------------------------------------------------

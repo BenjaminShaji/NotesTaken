@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+             label{
+                display: block;
+                width: 200px;
+            }
+
+            input{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+                height: 20px;
+                border: 1px solid dimgray;
+            }
+
+            textarea{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+            }
+
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color:dimgray;
+            }
+
+            label{
+                color:dimgray;
+            }
+
+            input[type=button]{
+                background-color:plum; 
+                border-radius: 12px;
+                width: 150px;
+                height: 35px;
+                font-weight: bold;
+                border: 1px solid transparent;
+            }
+        </style>
+
+        <script>
+            function copyContent(){
+
+                //Initializing global variables
+                var addMsg = "";
+                var para1="";
+                var para2="";
+                var para3="";
+                var caseExp = document.getElementById("caseEx").value;
+                var manager = document.getElementById("manager").value;
+                var customer = document.getElementById("customer").value;
+                var salutation = "Hello " + customer+ "," + '\n\n';                
+                var para3 = "Here is a summary of the key points of the case for your records." + '\n\n';
+                var issueDesc = "Problem:" + '\n' + document.getElementById("issue").value + '\n\n';
+                var envDtls = "Environment Details:" + '\n' + 'Operating System: ' + document.getElementById("os").value + '\n' + "Browser Version: " + document.getElementById("browser").value + '\n\n';
+                var cause = "Cause:" + '\n' + document.getElementById("cause").value + '\n\n';
+                var resolve = "Resolution:" + '\n' + document.getElementById("resolution").value + '\n\n';
+                var addInfo = "Additional Information:" + '\n' + document.getElementById("additional").value + '\n\n';
+                
+
+                var closing = "Have a great day ahead!";
+
+                //Adding condition to send a different message on good and bad case. Value 1 corresponds to good case, 0 is bad case. 
+                if (caseExp=="1"){
+                    
+                    para1 = "It was pleasure working with you on this issue. I'd like to confirm with you that, I'm closing the case as Resolved, as per our discussion.  Please remember that support for this case does not end here.  Should you need further assistance with this issue whether it is because the problem manifested itself again or the solution does not completely resolve the issue, you can contact me directly to reopen this support incident and I will continue working with you to find a resolution." + '\n\n';
+                    para2 = "Your feedback is very important to us so that we can make ongoing improvements to ensure we deliver a consistently high-quality customer service. You will receive an automated email with a survey link requesting feedback on your overall experience with this service request. Please take a few moments to complete the survey and share your opinion. It helps us serve you better in the future. Additionally, if you have any feedback for my services, you can send an email to my manager at " + manager + ". I thank you in advance for taking the time to share your feedback with us." + '\n\n';
+                    para3 = "Here is a summary of the key points of the case for your records." + '\n\n';
+                                        
+                }
+
+                else{
+                    para1 = "It was pleasure working with you on this issue. I'd like to confirm with you that, I'm closing the case as Resolved, as per our discussion.  Please remember that support for this case does not end here.  Should you need further assistance with this issue whether it is because the problem manifested itself again or the solution does not completely resolve the issue, you can contact me directly to reopen this support incident and I will continue working with you to find a resolution." + '\n\n';
+                    para2 = "Your feedback is very important to us so that we can make ongoing improvements to ensure we deliver a consistently high-quality customer service. We welcome all the suggestions as it helps us serve you better in the future. If you have any feedback for the services you received on this case, you can send an email to my manager at " + manager + ". I thank you in advance for taking the time to share your feedback with us." + '\n\n';
+                    para3 = "Here is a summary of the key points of the case for your records." + '\n\n';
+                    addMsg = "Please have the case reviewed by your manager before closing."
+
+                }
+                
+                //Cumulative email body
+                var clipboardContent = salutation + para1 + para2 + para3 + issueDesc + envDtls + cause + resolve + addInfo + closing;
+
+                //alert(clipboardContent);
+                //debugger;
+                
+                document.getElementById("finalOutput").value=clipboardContent;
+                var copyText = document.getElementById("finalOutput");
+                copyText.select();
+                //navigator.clipboard.writeText(copyText.value);
+                document.execCommand('copy');
+
+                
+                alert("Closure Details are copied. " + '\n' + addMsg);
+                
+            }
+
+            function resetData(){
+
+                document.getElementById("issue").value='';
+                document.getElementById("os").value='';
+                document.getElementById("browser").value='';
+                document.getElementById("cause").value='';
+                document.getElementById("resolution").value='';
+                document.getElementById("additional").value='';
+                document.getElementById("manager").value='';
+                document.getElementById("customer").value='';
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 align="center"><span style="text-decoration: underline; "><strong>Case Closure</strong></span></h1>
+
+        <label for="caseEx">Case Experience</label>
+        <select type="text" id="caseEx" style="width: 300px;">
+            <option value="1">Good</option>
+            <option value="0">Not Good</option>
+        </select>
+        <br><br>
+
+        <label for="manager">Manager's Email Address</label>
+        <input type="text" id="manager" style="width: 300px;"/><br><br>
+
+        <label for="customer">Customer's Name</label>
+        <input type="text" id="customer" style="width: 300px;"/><br><br>
+
+        <label for="issue">Issue Description</label>
+        <textarea id="issue" rows="2" cols="150"></textarea><br><br>
+
+        <label>Environment Details</label><br>
+        <label for="os">Operating System</label>
+        <input type="text" id="os" style="width: 300px;"/><br>
+        <label for="browser">Browser Version</label>
+        <input type="text" id="browser" style="width: 300px;"/><br><br>
+
+        <label for="cause">Cause</label>
+        <textarea id="cause" rows="5" cols="150"></textarea><br><br>
+
+        <label for="resolution">Resolution</label>
+        <textarea id="resolution" rows="10" cols="150"></textarea><br><br>
+
+        <label for="additional">Additional Information</label>
+        <textarea id="additional" rows="10" cols="150"></textarea><br><br>
+
+        <input type="button" id="copyContent" onclick="copyContent();" value="Copy the Content"/>
+        <input type="button" id="reset" onclick="resetData();" value="Reset"/> <br><br>
+
+        <textarea id="finalOutput" style="background-color: black; border: black; width: 0px; height: 0px;"></textarea>
+    </body>
+</html>

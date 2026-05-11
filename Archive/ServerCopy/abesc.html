@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            label{
+                display: block;
+                width: 200px;
+            }
+
+            input{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+                height: 20px;
+                border: 1px solid transparent;
+            }
+
+            textarea{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+            }
+
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            label{
+                color:white;
+                
+            }
+
+            input[type=button]{
+                background-color: orange; 
+                border-radius: 12px;
+                width: 150px;
+                height: 35px;
+                font-weight: bold;
+                border: 1px solid transparent;
+            }
+        </style>
+
+        <script>
+            function copyContent(){
+
+                var title = "[Escalation Task Request]" + '\n';
+                title.bold  ();
+                var caseSev = "Case Severity: " + document.getElementById("severity").value + '\n\n';
+                var issueDesc = "Scenario:" + '\n' + document.getElementById("issue").value + '\n\n';
+                var envDtl = "Environment:" + '\n' + "Impacted Operating System: " + document.getElementById("os").value + '\n' + "Impacted Browser Version: " + document.getElementById("browser").value + '\n\n';
+                var conf = "Configuration:" + '\n' + document.getElementById("config").value + '\n\n';
+                var logsCollected = "Data Collection:" + '\n' + document.getElementById("logs").value + '\n\n';
+                var tShooting = "Troubleshooting/Research:" + '\n' + document.getElementById("troubleshooting").value + '\n\n';                
+                var askEscalations = "Escalation Reason:" + '\n' + document.getElementById("askesc").value + '\n' + document.getElementById("cxexp").value + '\n\n';
+                
+                clipboardContent = title + caseSev + issueDesc + envDtl + conf + logsCollected + tShooting + askEscalations;
+                
+                //alert(clipboardContent);
+                //debugger;
+
+
+                document.getElementById("finalOutput").value=clipboardContent;
+                var copyText = document.getElementById("finalOutput");
+                copyText.select();
+                //navigator.clipboard.writeText(copyText.value);
+                document.execCommand('copy');
+                
+                alert("Escalation Summary is copied.");
+
+            }
+
+            function resetData(){
+
+                document.getElementById("issue").value='';
+                document.getElementById("os").value='';
+                document.getElementById("browser").value='';
+                document.getElementById("troubleshooting").value='';
+                document.getElementById("logs").value='';
+                document.getElementById("config").value='';
+                document.getElementById("cxexp").value='';
+                document.getElementById("askesc").value='';
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <div style="color:white;">
+            <h1 align="center"><span style="text-decoration: underline; color: orange;"><strong>Escalation Task Template</strong></span></h1>
+            <p>If you are aligned with the North American Browsers team, then:</p>
+            <ul>
+                <li>Always send an email to abesc@microsoft.com with the summary of the case. You can use the form on this page to create the details of the email that needs to be sent to Escalations.</li>
+                <li>Inlcude abrowserta@microsoft.com in CC on the email to ABESC</li>
+                <li>If you are using this form to create the summary, put the same summary on a case note on the case as well.</li>
+            </ul><br>
+        </div>
+        
+        <label for="severity">Case Severity</label>
+        <select id="severity" name="Sev">
+            <option value="Severity 1">Sev 1</option>
+            <option value="Severity A">Sev A</option>
+            <option value="Severity B">Sev B</option>
+            <option value="Severity C">Sev C</option>
+        </select><br><br>
+
+        <label for="issue">Scenario</label>
+        <textarea id="issue" rows="4" cols="150"></textarea><br><br>
+
+        <label>Environment Details</label><br>
+        <label for="os">Operating System</label>
+        <input type="text" id="os" style="width: 300px;"/><br>
+        <label for="browser">Browser Version</label>
+        <input type="text" id="browser" style="width: 300px;"/><br><br>
+
+        <label for="config">Configuration</label>
+        <textarea id="config" rows="1" cols="150"></textarea><br><br>
+
+        <label for="troubleshooting">Troubleshooting Done</label>
+        <textarea id="troubleshooting" rows="20" cols="150"></textarea><br><br>
+
+        <label for="logs">Data Collection (if any)</label>
+        <textarea id="logs" rows="4" cols="150"></textarea><br><br>
+
+        <label for="cxexp">Customer's Expectations</label>
+        <textarea id="cxexp" rows="2" cols="150"></textarea><br><br>
+
+        <label for="askesc">Ask from Escalations</label>
+        <textarea id="askesc" rows="2" cols="150"></textarea><br><br>
+
+        <input type="button" id="copyContent" onclick="copyContent();" value="Copy the Content"/>
+        <input type="button" id="reset" onclick="resetData();" value="Reset"/> <br><br>
+
+        <textarea id="finalOutput" style="background-color: black; border: black; width: 0px; height: 0px;"></textarea>
+    </body>
+</html>

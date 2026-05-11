@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            label{
+                display: block;
+                width: 200px;
+            }
+
+            input{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+                height: 20px;
+                border: 1px solid dimgray;
+                
+            }
+
+            textarea{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+            }
+
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color:dimgray;
+            }
+
+            label{
+                color:dimgray;
+                
+            }
+
+            input[type=button]{
+                background-color: plum;
+                border-radius: 12px;
+                width: 150px;
+                height: 35px;
+                font-weight: bold;
+                border: 1px solid transparent;
+            }
+        </style>
+
+<script>
+    function copyContent(){
+
+        var title = "[Handover Request]" + '\n\n';
+        var decor = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + '\n';
+        //title.bold  ();
+        var cOrigin = "Case originated from: " + '\n' + document.getElementById("origin").value + '\n\n';
+        var reason = "Case originated from: " + '\n' +document.getElementById("tReason").value + '\n\n';
+        var avail = "Sender's Availability: " + '\n' + document.getElementById("sAvail").value + '\n\n';
+
+        
+        var cxLang = "Customers Language Constraints: " + '\n' + document.getElementById("cLang").value + '\n\n\n';
+        var status = "[Status]" + '\n';
+        var issueDesc = "Issue Definition: " + '\n' + document.getElementById("issue").value + '\n\n';
+        var actionPlan = "Action Plan:" + '\n'+ "Customer:" + '\n' + document.getElementById("aPlanC").value + '\n\n' + "Microsoft:" + '\n' + document.getElementById("aPlanM").value + '\n\n';
+        
+        var ts = "Troubleshooting\Thoughts:" + '\n' + document.getElementById("tShooting").value + '\n';
+        
+
+        clipboardContent = title + cOrigin + reason + avail + cxLang + status + issueDesc + actionPlan + ts;
+        
+        //alert(clipboardContent);
+        //debugger;
+
+
+        document.getElementById("finalOutput").value=clipboardContent;
+        var copyText = document.getElementById("finalOutput");
+        copyText.select();
+        //navigator.clipboard.writeText(copyText.value);
+        document.execCommand('copy');
+        
+        alert("Handover summary is copied.");
+
+    }
+
+    function resetData(){
+
+        document.getElementById("origin").value='';
+        document.getElementById("tReason").value='';
+        document.getElementById("sAvail").value='';
+        document.getElementById("cLang").value='';
+        document.getElementById("issue").value='';
+        document.getElementById("aPlanM").value='';
+        document.getElementById("aPlanC").value='';
+        document.getElementById("tshooting").value='';
+
+
+    }
+</script>
+</head>
+
+    <body>
+    <div style="color:white;">
+        <h1 align="center"><span style="text-decoration: underline; color: dimgray;"><strong>General Case Handover Template</strong></span></h1>
+        <p>If you are handing over a non-CritSit case, please fill the details in here and copy the content.</p>
+        <br>
+    </div>
+
+
+
+    <label for="origin">Case Originated From</label>
+    <textarea id="origin" rows="1" cols="150"></textarea><br><br>
+
+    <label for="tReason">Transfer Reason</label>
+    <textarea id="tReason" rows="1" cols="150"></textarea><br><br>
+
+    <label for="sAvail">Sender's Availability</label>
+    <textarea id="sAvail" rows="1" cols="150"></textarea><br><br>
+
+    <label for="cLang">Customer's Language Constraint</label>
+    <textarea id="cLang" rows="1" cols="150"></textarea><br><br>
+
+    <label for="issue">Issue Definition</label>
+    <textarea id="issue" rows="4" cols="150"></textarea><br><br>
+
+    <label for="aPlanM">Action plan for Microsoft</label>
+    <textarea id="aPlanM" rows="4" cols="150"></textarea><br><br>
+
+    <label for="aPlanC">Action Plan for Customer</label>
+    <textarea id="aPlanC" rows="4" cols="150"></textarea><br><br>
+
+    <label for="tShooting">Troubleshooting\Thoughts</label>
+    <textarea id="tShooting" rows="4" cols="150"></textarea><br><br>
+
+    
+    <input type="button" id="copyContent" onclick="copyContent();" value="Copy the Content"/>
+    <input type="button" id="reset" onclick="resetData();" value="Reset"/> <br><br>
+
+    <textarea id="finalOutput" style="background-color: black; border: black; width: 0px; height: 0px;"></textarea>
+</body>
+</html>

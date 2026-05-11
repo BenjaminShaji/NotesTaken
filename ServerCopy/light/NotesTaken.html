@@ -1,0 +1,220 @@
+<!Doctype HTML>
+
+<html>
+    <head>
+        <title>NotesTaken</title>
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+        <style>
+           
+        a{
+            display: block;
+            text-align: center;
+        }
+                       
+           button{
+               width: 300px;
+               height: 30px;
+               background-color:cadetblue;
+               border-color:cadetblue;
+               font-weight: bold;
+               font-size:11pt;
+               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+               border-radius: 12px;
+               border: 1px solid transparent;
+               
+           }
+
+           table{
+              margin:auto;
+           }
+
+           iframe{
+               display:block;
+               margin:auto;
+               width: 1205px;
+               height: 690px;
+           }
+
+           td{
+               height: auto;
+           }
+
+           body{
+               background-color: white;
+               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            
+
+        </style>
+        
+        <script>
+            function openWF(){
+                
+                window.open("https://supportability.visualstudio.com/Developer/_wiki/wikis/Developer/185026/Browsers");
+                
+            }
+
+            function openETSG(){
+                window.open("https://microsoft.visualstudio.com/Edge/_wiki/wikis/Edge.wiki/48447/Edge-DRI-Handbook");
+            }
+
+            function openBDevOps(){
+                window.open("https://dev.azure.com/CSSDigital/Browsers/_wiki/wikis/Browsers.wiki/3/Welcome-to-the-Developer-Browsers-DevOps!");
+            }
+
+            function openFC(){
+                document.getElementById("contentHolder").src="./firstcall.html";
+            }
+
+            function notFC(){
+                document.getElementById("contentHolder").src="./notfirstcall.html";
+            }
+
+            function ctGen(){
+                document.getElementById("contentHolder").src="./ctgen.html";
+            }
+
+            function emailTemp(){
+                document.getElementById("contentHolder").src="./emailtemp.html";
+            }
+
+            function abesc(){
+                document.getElementById("contentHolder").src="./abesc.html";
+            }
+
+            function caseUpdate(){
+                document.getElementById("contentHolder").src="./caseupdate.html";
+            }
+
+            function caseClose(){
+                document.getElementById("contentHolder").src="./caseclosure.html";
+            }
+
+            function logCollect(){
+                document.getElementById("contentHolder").src="./logscollect.html";
+            }
+
+            function downloadBIS(){
+                window.open("https://dev.azure.com/cssdigital/Browsers/_wiki/wikis/Browsers.wiki/585/Customer-and-Premier-Business-Impact-Statements");
+            }
+
+            function visage(){
+                window.open("https://visageios.azurewebsites.net/index.html");
+            }
+
+            function bBasix(){
+                window.open("https://cloudacademy.com/training-plan/browser-basix-34897d6b-4c05-4dd6-86a2-f744c5a2a753-1854/");
+            }
+
+            function hoTemp(){
+                document.getElementById("contentHolder").src="./critho.html";
+            }
+
+            function hOver(){
+
+                document.getElementById("contentHolder").src="./genho.html";
+            }
+           
+        </script>
+
+    </head>
+
+    <body>
+        
+            <div id="title">
+                <a href="./NotesTaken.html">
+                    <img id="icon" src=".\logolight.png"/>
+                </a>
+                               
+            </div>
+
+            <div>
+            <table>
+                <tr>
+                    <td>
+                        <button onclick="openWF();">Browser Workflows</button>
+                    </td>
+
+                    <td>
+                        <button onclick="openETSG();">Edge Troubleshooting Guide</button>
+                    </td>
+                    
+                    <td>
+                        <button onclick="openBDevOps();">Browser Devops</button>
+                    </td>
+                    
+                    <td>
+                        <button onclick="downloadBIS();">Download BIS</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="openFC();">First Call to Troubleshoot</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="notFC();">Not the First Call to Troubleshoot</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="ctGen();">Case Title Generator</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="emailTemp();">Email Templates</button><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button onclick="abesc();">Escalation Collab</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="caseUpdate();">Case Update/Follow up</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="caseClose();">Closing the Case</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="logCollect();">Logs Collection</button><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+                    <td>
+                        <button onclick="visage();">Visage</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="bBasix();">Browser Basix</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="hoTemp();">CritSit Handoff Template</button><br>
+                    </td>
+
+                    <td>
+                        <button onclick="hOver();">General Case Handover Template</button><br>
+                    </td>
+                    
+                    
+                </tr>
+
+
+            </table>        
+            </div>
+            <iframe id="contentHolder" src=".\tsg.html"></iframe><br><br>
+
+            <div style="text-align: center;">
+                <span style="color: dimgray;"><b>Not a fan of light mode? Switch to dark mode by clicking on the link below.</b></span><br>
+                <a href="..\index.html">Dark Mode</a>
+            </div>
+        
+    </body>
+</html>

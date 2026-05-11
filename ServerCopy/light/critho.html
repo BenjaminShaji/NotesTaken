@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            label{
+                display: block;
+                width: 200px;
+            }
+
+            input{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+                height: 20px;
+                border: 1px solid dimgray;
+                
+            }
+
+            textarea{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                border-radius: 4px;
+            }
+
+            body{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color:dimgray;
+            }
+
+            label{
+                color:dimgray;
+                
+            }
+
+            input[type=button]{
+                background-color: cadetblue;
+                border-radius: 12px;
+                width: 150px;
+                height: 35px;
+                font-weight: bold;
+                border: 1px solid transparent;
+            }
+        </style>
+
+<script>
+    function copyContent(){
+
+        var title = "[Handoff Request]" + '\n';
+        var decor = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + '\n';
+        //title.bold  ();
+        var cOrigin = "Case originated from: " + document.getElementById("origin").value + '\n';
+        var reason = "Transfer Reason: " + document.getElementById("tReason").value + '\n';
+        var avail = "Sender's Availability: " + document.getElementById("sAvail").value + '\n';
+        var cMethod = "Best Contact Method: " + document.getElementById("coMethod").value + '\n';
+        var cxLang = "Customers Language Constraints: " + document.getElementById("cLang").value + '\n';
+        var status = "[Status]" + '\n';
+        var issueDesc = "Issue Definition: " + '\n' + document.getElementById("issue").value + '\n\n';
+        var actionPlan = "Action Plan:" + '\n'+ "Customer:" + '\n' + document.getElementById("aPlanC").value + '\n\n' + "Microsoft:" + '\n' + document.getElementById("aPlanM").value + '\n\n';
+        var envDtl = "Environment:" + '\n' + "Impacted Operating System: " + document.getElementById("os").value + '\n' + "Impacted Browser Version: " + document.getElementById("browser").value + '\n\n';
+        var bImpact = "Business Impact:" + '\n' + document.getElementById("busImpact").value + '\n';
+        
+
+        clipboardContent = title + decor + cOrigin + reason + avail + cMethod + cxLang + decor + '\n' + status + issueDesc + actionPlan + envDtl + bImpact;
+        
+        //alert(clipboardContent);
+        //debugger;
+
+
+        document.getElementById("finalOutput").value=clipboardContent;
+        var copyText = document.getElementById("finalOutput");
+        copyText.select();
+        //navigator.clipboard.writeText(copyText.value);
+        document.execCommand('copy');
+        
+        alert("CritSit Handoff summary is copied.");
+
+    }
+
+    function resetData(){
+
+        document.getElementById("origin").value='';
+        document.getElementById("tReason").value='';
+        document.getElementById("sAvail").value='';
+        document.getElementById("coMethod").value='';
+        document.getElementById("cLang").value='';
+        document.getElementById("issue").value='';
+        document.getElementById("aPlanM").value='';
+        document.getElementById("aPlanC").value='';
+        document.getElementById("os").value='';
+        document.getElementById("browser").value='';
+        document.getElementById("busImpact").value='';
+
+    }
+</script>
+</head>
+
+<body>
+<div style="color:white;">
+    <h1 align="center"><span style="text-decoration: underline; color: cadetblue;"><strong>CritSit Handoff Template</strong></span></h1>
+    <p>If you are on a CritSit case, and you want to handover, please fill the details in here and copy the content.</p>
+    <br>
+</div>
+
+
+
+<label for="origin">Case Originated From</label>
+<textarea id="origin" rows="1" cols="150"></textarea><br><br>
+
+<label for="tReason">Transfer Reason</label>
+<textarea id="tReason" rows="1" cols="150"></textarea><br><br>
+
+<label for="sAvail">Sender's Availability</label>
+<textarea id="sAvail" rows="1" cols="150"></textarea><br><br>
+
+<label for="coMethod">Best Contact Method</label>
+<textarea id="coMethod" rows="1" cols="150"></textarea><br><br>
+
+<label for="cLang">Customer's Language Constraint</label>
+<textarea id="cLang" rows="1" cols="150"></textarea><br><br>
+
+<label for="issue">Issue Definition</label>
+<textarea id="issue" rows="4" cols="150"></textarea><br><br>
+
+<label for="aPlanM">Action Plan for Microsoft</label>
+<textarea id="aPlanM" rows="4" cols="150"></textarea><br><br>
+
+<label for="aPlanC">Action Plan for Customer</label>
+<textarea id="aPlanC" rows="4" cols="150"></textarea><br><br>
+
+<label>Environment Details</label><br>
+<label for="os">Operating System</label>
+<input type="text" id="os" style="width: 300px;"/><br>
+<label for="browser">Browser Version</label>
+<input type="text" id="browser" style="width: 300px;"/><br><br>
+
+<label for="busImpact">Business Impact</label>
+<textarea id="busImpact" rows="4" cols="150"></textarea><br><br>
+
+<input type="button" id="copyContent" onclick="copyContent();" value="Copy the Content"/>
+<input type="button" id="reset" onclick="resetData();" value="Reset"/> <br><br>
+
+<textarea id="finalOutput" style="background-color: black; border: black; width: 0px; height: 0px;"></textarea>
+</body>
+</html>
